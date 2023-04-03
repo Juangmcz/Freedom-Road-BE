@@ -8,13 +8,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Data
 @Document(collection = "bustickets")
 @NoArgsConstructor
 @AllArgsConstructor
 public class BusTicketData {
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString().substring(0,10);
     @NotBlank(message="Empty field error")
     @NotNull(message ="Origin field is required")
     private String origin;
