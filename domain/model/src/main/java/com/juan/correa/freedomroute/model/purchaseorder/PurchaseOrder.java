@@ -11,4 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 public class PurchaseOrder {
+
+    private String id;
+    private String userId;
+    private String status;
+    private double total;
+    private String purchaseDate;
+    private int numberOfPassengers;
 }
