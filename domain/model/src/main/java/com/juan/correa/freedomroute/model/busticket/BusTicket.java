@@ -11,4 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 public class BusTicket {
+
+    private String id;
+    private String origin;
+    private String destination;
+    private String imageUrl;
+    private Double price;
+    private Integer numberOfTickets;
 }
