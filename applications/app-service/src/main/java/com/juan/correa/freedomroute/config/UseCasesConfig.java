@@ -76,7 +76,7 @@ public class UseCasesConfig {
         }
 
         @Bean
-        public SaveBusTicketUseCase saveBusTicket(BusTicketRepositoryGateway gateway){
+        public SaveBusTicketUseCase saveBusTicketUseCase(BusTicketRepositoryGateway gateway){
                 return new SaveBusTicketUseCase(gateway);
         }
 
@@ -86,7 +86,7 @@ public class UseCasesConfig {
         }
 
         @Bean
-        public DeleteBusTicketUseCase deleteBusTicket(BusTicketRepositoryGateway gateway){
+        public DeleteBusTicketUseCase deleteBusTicketUseCase(BusTicketRepositoryGateway gateway){
                 return new DeleteBusTicketUseCase(gateway);
         }
 
@@ -103,17 +103,17 @@ public class UseCasesConfig {
         }
 
         @Bean
-        public SavePurchaseOrderUseCase savePurchaseOrder(PurchaseOrderRepositoryGateway gateway){
+        public SavePurchaseOrderUseCase savePurchaseOrderUseCase(PurchaseOrderRepositoryGateway gateway){
                 return new SavePurchaseOrderUseCase(gateway);
         }
 
         @Bean
-        public UpdatePurchaseOrderUseCase updatePurchaseOrder(PurchaseOrderRepositoryGateway gateway){
+        public UpdatePurchaseOrderUseCase updatePurchaseOrderUseCase(PurchaseOrderRepositoryGateway gateway){
                 return new UpdatePurchaseOrderUseCase(gateway);
         }
 
         @Bean
-        public DeletePurchaseOrderUseCase deletePurchaseOrder(PurchaseOrderRepositoryGateway gateway){
+        public DeletePurchaseOrderUseCase deletePurchaseOrderUseCase(PurchaseOrderRepositoryGateway gateway){
                 return new DeletePurchaseOrderUseCase(gateway);
         }
 }
