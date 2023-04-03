@@ -4,7 +4,7 @@ import com.juan.correa.freedomroute.model.purchaseorder.PurchaseOrder;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface PurchaseOrderRepository {
+public interface PurchaseOrderRepositoryGateway {
 
     Flux<PurchaseOrder> getAllPurchaseOrders();
     Mono<PurchaseOrder> getPurchaseOrderById(String id);

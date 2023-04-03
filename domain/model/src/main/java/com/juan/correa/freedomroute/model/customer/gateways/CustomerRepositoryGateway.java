@@ -4,7 +4,7 @@ import com.juan.correa.freedomroute.model.customer.Customer;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface CustomerRepository {
+public interface CustomerRepositoryGateway {
 
     Flux<Customer> getAllCustomers();
     Mono<Customer> getCustomerById(String id);

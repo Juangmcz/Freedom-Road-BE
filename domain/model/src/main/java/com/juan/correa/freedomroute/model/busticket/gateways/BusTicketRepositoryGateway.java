@@ -4,7 +4,7 @@ import com.juan.correa.freedomroute.model.busticket.BusTicket;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface BusTicketRepository {
+public interface BusTicketRepositoryGateway {
 
     Flux<BusTicket> getAllBusTickets();
     Mono<BusTicket> getBusTicketById(String id);
