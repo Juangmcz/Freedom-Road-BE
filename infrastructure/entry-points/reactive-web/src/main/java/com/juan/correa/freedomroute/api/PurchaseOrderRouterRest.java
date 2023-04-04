@@ -107,7 +107,7 @@ public class PurchaseOrderRouterRest {
                     tags = "Purchase Order Use Cases",
                     parameters = {
                             @Parameter(
-                                    name = "purchaseorder",
+                                    name = "purchaseOrder",
                                     in = ParameterIn.PATH,
                                     schema = @Schema(implementation = PurchaseOrder.class)
                             )
@@ -151,7 +151,7 @@ public class PurchaseOrderRouterRest {
                                     in = ParameterIn.PATH
                             ),
                             @Parameter(
-                                    name = "purchaseorder",
+                                    name = "purchaseOrder",
                                     in = ParameterIn.PATH,
                                     schema = @Schema(implementation = PurchaseOrder.class)
                             )
