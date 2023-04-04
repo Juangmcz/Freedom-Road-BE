@@ -13,7 +13,7 @@ public class GetBusTicketByIdUseCase implements Function<String, Mono<BusTicket>
     private final BusTicketRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<BusTicket> apply(String busTicketId) {
-        return repositoryGateway.getBusTicketById(busTicketId);
+    public Mono<BusTicket> apply(String id) {
+        return repositoryGateway.getBusTicketById(id);
     }
 }

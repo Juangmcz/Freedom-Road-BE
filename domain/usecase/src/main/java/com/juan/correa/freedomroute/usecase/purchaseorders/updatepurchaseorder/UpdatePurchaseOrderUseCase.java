@@ -13,7 +13,7 @@ public class UpdatePurchaseOrderUseCase implements BiFunction<String, PurchaseOr
     private final PurchaseOrderRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<PurchaseOrder> apply(String purchaseOrderId, PurchaseOrder purchaseOrder) {
-        return repositoryGateway.updatePurchaseOrder(purchaseOrderId, purchaseOrder);
+    public Mono<PurchaseOrder> apply(String id, PurchaseOrder purchaseOrder) {
+        return repositoryGateway.updatePurchaseOrder(id, purchaseOrder);
     }
 }

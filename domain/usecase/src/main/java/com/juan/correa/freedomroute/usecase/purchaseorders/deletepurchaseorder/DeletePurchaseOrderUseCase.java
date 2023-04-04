@@ -12,7 +12,7 @@ public class DeletePurchaseOrderUseCase implements Function<String, Mono<Void>> 
     private final PurchaseOrderRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<Void> apply(String purchaseOrderId) {
-        return repositoryGateway.deletePurchaseOrder(purchaseOrderId);
+    public Mono<Void> apply(String id) {
+        return repositoryGateway.deletePurchaseOrder(id);
     }
 }

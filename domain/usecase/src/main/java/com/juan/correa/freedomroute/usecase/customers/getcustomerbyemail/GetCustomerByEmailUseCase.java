@@ -12,7 +12,7 @@ public class GetCustomerByEmailUseCase implements Function<String, Mono<Customer
 
     private final CustomerRepositoryGateway repositoryGateway;
     @Override
-    public Mono<Customer> apply(String customerEmail) {
-        return repositoryGateway.getCustomerByEmail(customerEmail);
+    public Mono<Customer> apply(String email) {
+        return repositoryGateway.getCustomerByEmail(email);
     }
 }

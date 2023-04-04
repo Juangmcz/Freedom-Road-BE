@@ -13,7 +13,7 @@ public class UpdateCustomerUseCase implements BiFunction<String, Customer, Mono<
     private final CustomerRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<Customer> apply(String customerId, Customer customer) {
-        return repositoryGateway.updateCustomer(customerId, customer);
+    public Mono<Customer> apply(String id, Customer customer) {
+        return repositoryGateway.updateCustomer(id, customer);
     }
 }

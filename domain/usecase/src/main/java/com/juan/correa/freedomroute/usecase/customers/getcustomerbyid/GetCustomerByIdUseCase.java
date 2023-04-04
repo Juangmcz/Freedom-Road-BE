@@ -13,7 +13,7 @@ public class GetCustomerByIdUseCase implements Function<String, Mono<Customer>> 
     private final CustomerRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<Customer> apply(String customerId) {
-        return repositoryGateway.getCustomerById(customerId);
+    public Mono<Customer> apply(String id) {
+        return repositoryGateway.getCustomerById(id);
     }
 }

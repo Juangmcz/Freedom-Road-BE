@@ -12,7 +12,7 @@ public class DeleteBusTicketUseCase implements Function<String, Mono<Void>> {
     private final BusTicketRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<Void> apply(String busTicketId) {
-        return repositoryGateway.deleteBusTicket(busTicketId);
+    public Mono<Void> apply(String id) {
+        return repositoryGateway.deleteBusTicket(id);
     }
 }

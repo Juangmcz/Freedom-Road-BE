@@ -13,7 +13,7 @@ public class UpdateBusTicketUseCase implements BiFunction<String, BusTicket, Mon
     private final BusTicketRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<BusTicket> apply(String busTicketId, BusTicket busTicket) {
-        return repositoryGateway.updateBusTicket(busTicketId, busTicket);
+    public Mono<BusTicket> apply(String id, BusTicket busTicket) {
+        return repositoryGateway.updateBusTicket(id, busTicket);
     }
 }

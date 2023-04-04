@@ -13,7 +13,7 @@ public class GetPurchaseOrderByIdUseCase implements Function<String, Mono<Purcha
     private final PurchaseOrderRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<PurchaseOrder> apply(String purchaseOrderId) {
-        return repositoryGateway.getPurchaseOrderById(purchaseOrderId);
+    public Mono<PurchaseOrder> apply(String id) {
+        return repositoryGateway.getPurchaseOrderById(id);
     }
 }

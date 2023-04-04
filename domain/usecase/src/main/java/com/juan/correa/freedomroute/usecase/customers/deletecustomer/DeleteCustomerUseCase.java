@@ -12,7 +12,7 @@ public class DeleteCustomerUseCase implements Function<String, Mono<Void>> {
     private final CustomerRepositoryGateway repositoryGateway;
 
     @Override
-    public Mono<Void> apply(String customerId) {
-        return repositoryGateway.deleteCustomer(customerId);
+    public Mono<Void> apply(String id) {
+        return repositoryGateway.deleteCustomer(id);
     }
 }
