@@ -24,7 +24,6 @@ public class BusTicketData {
     @NotNull(message ="Destination field is required")
     private String destination;
     private String imageUrl;
-    @NotBlank(message="Empty field error")
     @NotNull(message ="Price field is required")
     private Double price;
     @NotBlank(message="Empty field error")

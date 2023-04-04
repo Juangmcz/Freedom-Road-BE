@@ -23,7 +23,6 @@ public class PurchaseOrderData {
     @NotBlank(message="Empty field error")
     @NotNull(message ="Status field is required")
     private String status;
-    @NotBlank(message="Empty field error")
     @NotNull(message ="Total field is required")
     private double total;
     private String purchaseDate;
