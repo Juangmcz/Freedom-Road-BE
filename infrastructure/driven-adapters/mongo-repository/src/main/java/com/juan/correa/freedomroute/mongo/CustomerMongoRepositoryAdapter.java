@@ -34,8 +34,11 @@ public class CustomerMongoRepositoryAdapter implements CustomerRepositoryGateway
     }
 
     @Override
-    public Mono<Customer> getCustomerByEmail(String id) {
-        return null;
+    public Mono<Customer> getCustomerByEmail(String email) {
+        return this.customerRepository
+                .findByEmail(email)
+                .switchIfEmpty(Mono.error(new Throwable("Customer not found")))
+                .map(customer -> mapper.map(customer, Customer.class));
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.juan.correa.freedomroute.api;
 import com.juan.correa.freedomroute.model.customer.Customer;
 import com.juan.correa.freedomroute.usecase.customers.deletecustomer.DeleteCustomerUseCase;
 import com.juan.correa.freedomroute.usecase.customers.getallcustomers.GetAllCustomersUseCase;
+import com.juan.correa.freedomroute.usecase.customers.getcustomerbyemail.GetCustomerByEmailUseCase;
 import com.juan.correa.freedomroute.usecase.customers.getcustomerbyid.GetCustomerByIdUseCase;
 import com.juan.correa.freedomroute.usecase.customers.savecustomer.SaveCustomerUseCase;
 import com.juan.correa.freedomroute.usecase.customers.updatecustomer.UpdateCustomerUseCase;
@@ -34,6 +35,17 @@ public class CustomerRouterRest {
     public RouterFunction<ServerResponse> getCustomerById(GetCustomerByIdUseCase getCustomerByIdUseCase){
         return route(GET("/api/customers/{id}"),
                 request -> getCustomerByIdUseCase.apply(request.pathVariable("id"))
+                        .switchIfEmpty(Mono.error(new Throwable(HttpStatus.NO_CONTENT.toString())))
+                        .flatMap(customer -> ServerResponse.ok()
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .bodyValue(customer))
+                        .onErrorResume(throwable -> ServerResponse.notFound().build()));
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> getCustomerByEmail(GetCustomerByEmailUseCase getCustomerByEmailUseCase){
+        return route(GET("/api/customers/email/{email}"),
+                request -> getCustomerByEmailUseCase.apply(request.pathVariable("email"))
                         .switchIfEmpty(Mono.error(new Throwable(HttpStatus.NO_CONTENT.toString())))
                         .flatMap(customer -> ServerResponse.ok()
                                 .contentType(MediaType.APPLICATION_JSON)
