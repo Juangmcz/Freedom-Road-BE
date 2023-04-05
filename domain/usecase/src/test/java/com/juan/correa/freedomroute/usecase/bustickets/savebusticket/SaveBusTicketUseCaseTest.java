@@ -37,6 +37,7 @@ class SaveBusTicketUseCaseTest {
         StepVerifier.create(result)
                 .expectNextMatches(busTicket -> busTicket.getId().equals("1"))
                 .verifyComplete();
+
         Mockito.verify(busTicketRepository).saveBusTicket(ArgumentMatchers.any(BusTicket.class));
     }
 
@@ -51,6 +52,7 @@ class SaveBusTicketUseCaseTest {
         StepVerifier.create(result)
                 .expectNextCount(0)
                 .verifyComplete();
+
         Mockito.verify(busTicketRepository).saveBusTicket(ArgumentMatchers.any(BusTicket.class));
     }
 }
