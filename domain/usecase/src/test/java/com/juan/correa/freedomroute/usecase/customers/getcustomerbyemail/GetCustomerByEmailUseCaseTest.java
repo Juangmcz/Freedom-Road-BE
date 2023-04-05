@@ -44,15 +44,15 @@ class GetCustomerByEmailUseCaseTest {
     @DisplayName("getCustomerByEmail_nonSuccess")
     void getEmptyCustomerById() {
 
-        Mockito.when(customerRepository.getCustomerById("1")).thenReturn(DataMocks.emptyCustomer());
+        Mockito.when(customerRepository.getCustomerByEmail("Robert@correo.com")).thenReturn(DataMocks.emptyCustomer());
 
-        var result = getCustomerByEmailUseCase.apply("1");
+        var result = getCustomerByEmailUseCase.apply("Robert@correo.com");
 
         StepVerifier.create(result)
                 .expectNextCount(0)
                 .verifyComplete();
 
-        Mockito.verify(customerRepository, Mockito.times(1)).getCustomerById("1");
+        Mockito.verify(customerRepository, Mockito.times(1)).getCustomerByEmail("Robert@correo.com");
 
     }
 }
