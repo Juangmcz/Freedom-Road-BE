@@ -30,9 +30,9 @@ class SaveCustomerUseCaseTest {
     @DisplayName("saveCustomer_success")
     void saveCustomer(){
 
-        Mockito.when(customerRepository.saveCustomer(ArgumentMatchers.any(Customer.class))).thenReturn(DataMocks.customerById());
+        Mockito.when(customerRepository.saveCustomer(ArgumentMatchers.any(Customer.class))).thenReturn(DataMocks.customer());
 
-        var result = saveCustomerUseCase.apply(DataMocks.customer());
+        var result = saveCustomerUseCase.apply(DataMocks.rawCustomer());
 
         StepVerifier.create(result)
                 .expectNextMatches(customer -> customer.getId().equals("1"))

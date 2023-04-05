@@ -1,4 +1,4 @@
-package com.juan.correa.freedomroute.usecase.customers.getcustomerbyid;
+package com.juan.correa.freedomroute.usecase.customers.getcustomerbyemail;
 
 import com.juan.correa.freedomroute.model.customer.gateways.CustomerRepositoryGateway;
 import com.juan.correa.freedomroute.usecase.DataMocks;
@@ -12,45 +12,47 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.test.StepVerifier;
 
 @ExtendWith(MockitoExtension.class)
-class GetCustomerByIdUseCaseTest {
+class GetCustomerByEmailUseCaseTest {
 
     @Mock
     CustomerRepositoryGateway customerRepository;
 
-    GetCustomerByIdUseCase getCustomerByIdUseCase;
+    GetCustomerByEmailUseCase getCustomerByEmailUseCase;
 
     @BeforeEach
     void init() {
-        getCustomerByIdUseCase = new GetCustomerByIdUseCase(customerRepository);
+        getCustomerByEmailUseCase = new GetCustomerByEmailUseCase(customerRepository);
     }
 
     @Test
-    @DisplayName("getCustomerById_success")
+    @DisplayName("getCustomerByEmail_success")
     void getCustomerById() {
 
-        Mockito.when(customerRepository.getCustomerById("1")).thenReturn(DataMocks.customer());
+        Mockito.when(customerRepository.getCustomerByEmail("Robert@correo.com")).thenReturn(DataMocks.customer());
 
-        var result = getCustomerByIdUseCase.apply("1");
+        var result = getCustomerByEmailUseCase.apply("Robert@correo.com");
 
         StepVerifier.create(result)
-                .expectNextMatches(customer -> customer.getId().equals("1"))
+                .expectNextMatches(customer -> customer.getEmail().equals("Robert@correo.com"))
                 .verifyComplete();
 
-        Mockito.verify(customerRepository, Mockito.times(1)).getCustomerById("1");
+        Mockito.verify(customerRepository, Mockito.times(1)).getCustomerByEmail("Robert@correo.com");
+
     }
 
     @Test
-    @DisplayName("getCustomerById_nonSuccess")
+    @DisplayName("getCustomerByEmail_nonSuccess")
     void getEmptyCustomerById() {
 
         Mockito.when(customerRepository.getCustomerById("1")).thenReturn(DataMocks.emptyCustomer());
 
-        var result = getCustomerByIdUseCase.apply("1");
+        var result = getCustomerByEmailUseCase.apply("1");
 
         StepVerifier.create(result)
                 .expectNextCount(0)
                 .verifyComplete();
 
         Mockito.verify(customerRepository, Mockito.times(1)).getCustomerById("1");
+
     }
 }
