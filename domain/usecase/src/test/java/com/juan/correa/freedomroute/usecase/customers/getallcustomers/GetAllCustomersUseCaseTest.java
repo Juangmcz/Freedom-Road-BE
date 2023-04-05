@@ -26,7 +26,7 @@ class GetAllCustomersUseCaseTest {
 
     @Test
     @DisplayName("getAllCustomers_success")
-    void get() {
+    void getAllCustomers() {
 
         Mockito.when(customerRepository.getAllCustomers()).thenReturn(DataMocks.allCustomers());
 
@@ -42,7 +42,7 @@ class GetAllCustomersUseCaseTest {
 
     @Test
     @DisplayName("getAllCustomers_nonSuccess")
-    void getEmpty() {
+    void getEmptyAllCustomers() {
 
         Mockito.when(customerRepository.getAllCustomers()).thenReturn(DataMocks.emptyAllCustomers());
 
