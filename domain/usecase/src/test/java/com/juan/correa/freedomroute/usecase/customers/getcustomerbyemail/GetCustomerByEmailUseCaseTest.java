@@ -37,7 +37,6 @@ class GetCustomerByEmailUseCaseTest {
                 .verifyComplete();
 
         Mockito.verify(customerRepository, Mockito.times(1)).getCustomerByEmail("Robert@correo.com");
-
     }
 
     @Test
@@ -53,6 +52,5 @@ class GetCustomerByEmailUseCaseTest {
                 .verifyComplete();
 
         Mockito.verify(customerRepository, Mockito.times(1)).getCustomerByEmail("Robert@correo.com");
-
     }
 }
