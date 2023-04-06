@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_DATA_MONGODB_DATABASE: sofkaU
+      SPRING_DATA_MONGODB_URI: mongodb+srv://admin:admin@cluster0.veguzyx.mongodb.net/sofkaU?retryWrites=true&w=majority
+    links:
+      - mongodb
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
