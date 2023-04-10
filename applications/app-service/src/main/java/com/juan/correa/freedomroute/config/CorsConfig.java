@@ -28,6 +28,9 @@ public class CorsConfig implements WebFilter {
         headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
         if (request.getMethod() == HttpMethod.OPTIONS) {
+            headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+            headers.add("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+            headers.add("Access-Control-Max-Age", "3600");
             response.setStatusCode(HttpStatus.OK);
             return Mono.empty();
         }
