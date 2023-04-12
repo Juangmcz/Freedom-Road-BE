@@ -26,7 +26,6 @@ public class BusTicketData {
     private String imageUrl;
     @NotNull(message ="Price field is required")
     private Double price;
-    @NotBlank(message="Empty field error")
     @NotNull(message ="Number of tickets field is required")
     private Integer numberOfTickets;
 }
